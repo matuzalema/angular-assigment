@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "angular-assigment": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-assigment"
+    }
+  },
+  "defaultProject": "angular-assigment",
+  "cli": {
+    "analytics": "070e61e2-722c-47b5-a6cc-6ca238f9feba"
+  }
 }

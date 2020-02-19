@@ -6,5 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-assigment';
+  task = '';
+  tasksList: Array<string> = ['wash the car', 'buy shoes'];
+  tasksDone: Array<string> = [];
+  getValue(event) {
+    this.task = event.target.value;
+  }
+
+  add(task) {
+    this.tasksList.push(task);
+    this.task = '';
+    console.log(this.tasksList);
+  }
+
+  remove(task: string) {
+    this.tasksList = this.tasksList.filter( item => item !== task);
+  }
+
+  done(task) {
+    this.tasksDone.push(task);
+    this.remove(task);
+  }
 }
