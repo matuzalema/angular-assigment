@@ -1,22 +1,8 @@
 <section class='container'>
   <h1> To do list</h1>
   <h2>Tasks</h2>
-  <input [value] = 'task' (change)= 'getValue($event)'>
-  <button (click)='add(task)'>Add</button>
-  <ng-container *ngIf="tasksList.length > 0; else Done">
-    <ul>
-      <li *ngFor='let task of tasksList'>{{task}}
-        <button (click)= 'remove(task)'>Remove</button>
-        <button (click)='done(task)'>Done</button>
-      </li>
-    </ul>
-  </ng-container>
-    <h2>Done</h2>
-    <h3> You have done {{tasksDone.length}} tasks</h3>
-    <ul>
-      <li *ngFor='let taskDone of tasksDone'> {{taskDone}}</li>
-    </ul>
-  <ng-template #Done>
-    <p>Masz luzik, odpocznij sobie</p>
-  </ng-template>
+  <app-add-task (emitNewTask)='add($event)'></app-add-task>
+  <app-to-do-task [tasksList]="tasksList" (emitDone)="done($event)" (emitRemove)="remove($event)"></app-to-do-task>
+  <h2>Done</h2>
+  <app-done-task [tasksDone]="tasksDone"></app-done-task>
 </section>

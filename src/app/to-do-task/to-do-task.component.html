@@ -1,0 +1,11 @@
+<ng-container *ngIf="tasksList.length > 0; else Done">
+  <ul>
+    <li *ngFor='let task of tasksList'>{{task}}
+      <button type="button" class="btn btn-warning" (click)='remove(task)'>Remove</button>
+      <button type="button" class="btn btn-primary" (click)='done(task)'>Done</button>
+    </li>
+  </ul>
+</ng-container>
+<ng-template #Done>
+  <p>Masz luzik, odpocznij sobie</p>
+</ng-template>

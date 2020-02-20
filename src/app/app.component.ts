@@ -6,16 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  task = '';
+  task = 'narty';
   tasksList: Array<string> = ['wash the car', 'buy shoes'];
   tasksDone: Array<string> = [];
   getValue(event) {
     this.task = event.target.value;
   }
 
-  add(task) {
-    this.tasksList.push(task);
-    this.task = '';
+  add(newTask: string) {
+    this.tasksList.push(newTask);
     console.log(this.tasksList);
   }
 
