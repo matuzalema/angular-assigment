@@ -26,4 +26,8 @@ export class AppComponent {
     this.tasksDone.push(task);
     this.remove(task);
   }
+
+  getColor(): string {
+    return this.tasksList.length > 2 ? 'red' : 'green';
+  }
 }

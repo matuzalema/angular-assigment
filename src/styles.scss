@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html body {
+  background-color: #dfe6e9;
+}
+ul {
+  list-style-type: none;
+  margin-left: 30px;
+  width: 100%;
+  position: relative;
+
+  li {
+    display: flex;
+    margin-bottom: 10px;
+
+    .btns {
+      display: flex;
+
+      button {
+        height: 35px;
+        width: 80px;
+        border: none;
+        line-height: 35px;
+
+        &.btn-done {
+          background-color: #2d3436;
+          color: #fff;
+        }
+
+        &.btn-remove {
+          background-color: #0984e3;
+          color: #fff;
+        }
+      }
+    }
+  }
+p {
+    height: 35px;
+    line-height: 35px;
+    width: 50%;
+  }
+}
