@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TaskService } from '../serveces/tasks.service';
 
 @Component({
   selector: "app-to-do-task",
@@ -6,23 +7,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ["./to-do-task.component.scss"]
 })
 export class ToDoTaskComponent implements OnInit {
-  @Input()
   tasksList = [];
 
-  @Output()
-  emitDone = new EventEmitter<string>();
-
-  @Output()
-  emitRemove = new EventEmitter<string>();
-
-  constructor() {}
+  constructor(private tasksService: TaskService) {
+    this.tasksService.getTasksListObs().subscribe((tasks: Array<string>) => {
+      this.tasksList = tasks;
+    });
+  }
 
   ngOnInit(): void {}
   remove(task: string) {
-    this.emitRemove.emit(task);
+    this.tasksService.remove(task);
   }
 
   done(task: string){
-    this.emitDone.emit(task);
+    this.tasksService.done(task);
   }
 }
